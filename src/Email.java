@@ -80,13 +80,13 @@ public class Email {
         }
         return new String(password);
     }
-    
-    public void setPassword(String password){
+
+    public void changePassword(String password){
         this.password = password;
     }
 
     public void setAlternateEmail(String alternateEmail){
-        this.password = firstName;
+        this.alternateEmail = alternateEmail;
     }
 
 
@@ -94,6 +94,9 @@ public class Email {
         System.out.println(firstName + " " + lastName);
     }
 
+    public void setMailboxCapacity(int mailboxCapacity){
+        this.mailboxCapacity = mailboxCapacity;
+    }
     public int getMailboxCapacity(){
         return mailboxCapacity;
     }
