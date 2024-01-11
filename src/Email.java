@@ -101,5 +101,16 @@ public class Email {
         return mailboxCapacity;
     }
 
+    public void fullInfo(){
+        System.out.print("Name: ");
+        fullName();
+        System.out.println();
+        System.out.println("Email: " +  this.email);
+        System.out.print("Department: " +  this.department);
+        System.out.print("Department: " +  getMailboxCapacity());
+        System.out.print("Password: " +  this.password);
+    }
+
+
 }
 
