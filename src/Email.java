@@ -9,33 +9,47 @@ public class Email {
     private String department;
 
     private String email;
+
+    //default password length
     private int passwordLength = 8;
     private String password;
     private String alternateEmail;
     private int mailboxCapacity;
 
+    //Company Email
     private String companyEmail = "jacksonInc.com";
 
     Scanner scan = new Scanner(System.in);
 
+    /**
+     * Constructor to receive the first name and last name
+     *
+     * @param firstName
+     * @param lastName
+     */
     public Email(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        System.out.println("EMAIL CREATED: " + firstName + " " + lastName);
+        // Showing user created
+        System.out.println("USER CREATED: " + firstName + " " + lastName);
         setDepartment();
         System.out.println();
+        // Showing department
         System.out.println("Department: " + this.department);
         System.out.println();
+        // Showing password
         this.password = generatePassword(passwordLength);
         System.out.println("Your newly generated password is: " + this.password);
-
         System.out.println();
+        // Showing email
         email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + this.department + "." + companyEmail;
-
         System.out.println("Your Email: " + email);
         System.out.println();
     }
 
+    /**
+     * Set the department
+     */
     private void setDepartment() {
         System.out.print("Department Numbers: \n"
                 + "1. Sales \n"
@@ -43,10 +57,7 @@ public class Email {
                 + "3. Accounting \n\n");
 
         System.out.print("Enter Department Number: ");
-
         int choice = scan.nextInt();
-
-
         switch (choice) {
             case 1:
                 this.department = "sales";
@@ -65,11 +76,15 @@ public class Email {
                 break;
             default:
                 break;
-
         }
     }
 
 
+    /**
+     * Generate a random password
+     * @param length
+     * @return a generated password
+     */
     private String generatePassword(int length) {
         String passwordSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcefghijklmnopqrstuvwxyz1234567890!@#$%^&*()?{}|<>";
         char[] password = new char[length];
@@ -80,27 +95,50 @@ public class Email {
         return new String(password);
     }
 
+    /**
+     * Change the password
+     * @param password
+     */
     public void changePassword(String password) {
         this.password = password;
     }
 
+    /**
+     * Set the alternate email
+     * @param alternateEmail
+     */
     public void setAlternateEmail(String alternateEmail) {
         this.alternateEmail = alternateEmail;
     }
 
 
+    /**
+     * Get the full name of a user
+     */
     public void fullName() {
         System.out.println(firstName + " " + lastName);
     }
 
+    /**
+     * Set the mailbox capacity
+     * @param mailboxCapacity
+     */
     public void setMailboxCapacity(int mailboxCapacity) {
         this.mailboxCapacity = mailboxCapacity;
     }
 
+    /**
+     * Get the mailbox capacity
+     *
+     * @return mailboxCapacity
+     */
     public int getMailboxCapacity() {
         return mailboxCapacity;
     }
 
+    /**
+     * Get the full info for the user to view
+     */
     public void fullInfo() {
         System.out.print("Name: ");
         fullName();
